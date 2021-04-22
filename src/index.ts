@@ -22,10 +22,16 @@ app.post("/webhook", async (req: Request, res: Response) => {
 	}
 
   console.log('authorized!');
-  
+
 	const reply_token = body.events[0].replyToken;
-	const response = await reply(reply_token);
-	res.status(200).send(response);
+  try {
+    const response = await reply(reply_token);
+    res.status(200).send(response);
+  } catch(err) {
+    console.error(err);
+    res.sendStatus(400);
+  }
+	
 });
 app.listen(port);
 
