@@ -26,7 +26,7 @@ app.post("/webhook", async (req: Request, res: Response) => {
 	const reply_token = body.events[0].replyToken;
 	try {
 		const response = await reply(reply_token);
-		res.status(200).send(response);
+		res.status(200).send(response.data);
 	} catch (err) {
 		console.error(err);
 		res.sendStatus(400);
@@ -48,6 +48,5 @@ async function reply(reply_token: string) {
 			},
 		],
 	};
-	console.log({ REPLY_URL, body, LINE_HEADER });
 	return await axios.post(REPLY_URL, body, { headers: LINE_HEADER });
 }
