@@ -21,6 +21,8 @@ app.post("/webhook", async (req: Request, res: Response) => {
 		return res.status(401).send("Unauthorized");
 	}
 
+  console.log('authorized!');
+  
 	const reply_token = body.events[0].replyToken;
 	const response = await reply(reply_token);
 	res.status(200).send(response);
