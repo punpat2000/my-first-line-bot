@@ -35,6 +35,9 @@ app.post("/webhook", async (req: Request, res: Response) => {
 });
 app.listen(port);
 
+/**
+ * @param  {string} Returns any response from LINE reply API. 
+ */
 async function reply(reply_token: string) {
 	const body = {
 		replyToken: reply_token,
