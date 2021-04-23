@@ -1,2 +1,2 @@
-# bitkub-linebot
+# linebot
  

@@ -1,5 +1,7 @@
+import config from './config';
+
 const LINE_HEADER = {
-	Authorization: `Bearer ${process.env.CHANNEL_ACCESS_TOKEN!}`,
+	Authorization: `Bearer ${config.CHANNEL_ACCESS_TOKEN!}`,
 	'Content-Type': 'application/json',
 };
 
