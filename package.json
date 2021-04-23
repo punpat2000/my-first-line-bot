@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/index.ts",
     "start": "node dist/index.js",
-    "build": "tsc & ef-tspm",
+    "build": "tsc",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "dependencies": {
