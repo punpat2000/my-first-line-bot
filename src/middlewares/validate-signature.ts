@@ -1,7 +1,7 @@
 import hmacSHA256 from 'crypto-js/hmac-sha256';
 import Base64 from 'crypto-js/enc-base64';
 import type { Request, Response, NextFunction } from 'express';
-import config from '@config/config';
+import config from '../config/config';
 
 const validateSignature = (req: Request, res: Response, next: NextFunction): void => {
 	const { body, headers } = req;

@@ -1,8 +1,8 @@
 import type { Request, Response } from 'express';
 import axios from 'axios';
-import { REPLY_URL } from '@api/url';
-import LINE_HEADER from '@config/header';
-import type { MessageEvent } from '@models/webhook-event.model';
+import { REPLY_URL } from '../api/url';
+import LINE_HEADER from '../config/header';
+import type { MessageEvent } from '../models/webhook-event.model';
 
 export const listenToWebhook = async (req: Request, res: Response) => {
 	const { body } = req;

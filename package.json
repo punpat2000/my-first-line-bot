@@ -20,7 +20,6 @@
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "dependencies": {
-    "@ef-carbon/tspm": "^2.2.5",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "crypto-js": "^4.0.0",
