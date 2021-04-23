@@ -5,7 +5,6 @@
   "author": "Pattradanai Punvichartkul <saint12302@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@ef-carbon/tspm": "^2.2.5",
     "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.19.0",
     "@types/crypto-js": "^4.0.1",
@@ -21,6 +20,7 @@
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "dependencies": {
+    "@ef-carbon/tspm": "^2.2.5",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "crypto-js": "^4.0.0",
