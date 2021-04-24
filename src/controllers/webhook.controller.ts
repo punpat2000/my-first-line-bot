@@ -13,9 +13,9 @@ const listenToWebhook = async (req: Request, res: Response) => {
 		return;
 	}
 
-	const reply_token = (body.events[0] as MessageEvent).replyToken;
+	const event = body.events[0] as MessageEvent;
 	try {
-		const response = await reply(reply_token);
+		const response = await reply(event);
 		res.status(200).send(response.data);
 	} catch (err) {
 		console.error(err);
@@ -26,17 +26,16 @@ const listenToWebhook = async (req: Request, res: Response) => {
 /**
  * @param  {string} Returns any response from LINE reply API.
  */
-async function reply(reply_token: string) {
+async function reply(event: MessageEvent) {
 	const body = {
-		replyToken: reply_token,
+		replyToken: event.replyToken,
 		messages: [
 			{
 				type: 'text',
-				text: 'Hello',
-			},
-			{
-				type: 'text',
-				text: 'How are you?',
+				text: ((event.message as any).text as string)
+					.split('')
+					.reverse()
+					.join(''),
 			},
 		],
 	};
