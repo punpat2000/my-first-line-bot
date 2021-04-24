@@ -6,14 +6,8 @@ import type { WebHookEvent } from '../models/webhook-event.model';
 import type { MessageEvent } from '../models/event.model';
 
 const listenToWebhook = async (req: Request, res: Response) => {
-	const body = req.body as WebHookEvent;
-
-	if (body.events.length === 0) {
-		res.sendStatus(200);
-		return;
-	}
-
-	const event = body.events[0] as MessageEvent;
+	const body = req.body as WebHookEvent<MessageEvent>;
+	const event = body.events[0];
 	try {
 		const response = await reply(event);
 		res.status(200).send(response.data);
