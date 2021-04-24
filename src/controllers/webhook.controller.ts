@@ -2,10 +2,17 @@ import type { Request, Response } from 'express';
 import axios from 'axios';
 import { REPLY_URL } from '../api/url';
 import LINE_HEADER from '../config/header';
-import type { MessageEvent } from '../models/webhook-event.model';
+import type { WebHookEvent } from '../models/webhook-event.model';
+import type { MessageEvent } from '../models/event.model';
 
-export const listenToWebhook = async (req: Request, res: Response) => {
-	const { body } = req;
+const listenToWebhook = async (req: Request, res: Response) => {
+	const body = req.body as WebHookEvent;
+
+	if (body.events.length === 0) {
+		res.sendStatus(200);
+		return;
+	}
+
 	const reply_token = (body.events[0] as MessageEvent).replyToken;
 	try {
 		const response = await reply(reply_token);
@@ -35,3 +42,5 @@ async function reply(reply_token: string) {
 	};
 	return await axios.post(REPLY_URL, body, { headers: LINE_HEADER });
 }
+
+export default listenToWebhook;
