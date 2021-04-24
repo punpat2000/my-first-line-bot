@@ -15,7 +15,7 @@ const validateSignature = (
 
 	if (signature !== headers['x-line-signature']) {
 		res.status(403).send('Unauthorized');
-		throw new Error('Unauthorized');
+		return;
 	}
 
 	console.log('authorized!');
