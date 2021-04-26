@@ -29,10 +29,6 @@ async function reply(event: MessageEvent, bo: any) {
 				text: ((event.message as any).text as string)
 					.toUpperCase,
 			},
-			{
-				type: 'text',
-				text: JSON.stringify(bo),
-			},
 		],
 	};
 	return await axios.post(REPLY_URL, body, { headers: LINE_HEADER });
