@@ -1,5 +1,5 @@
 import { app, port } from './app';
-// import { task } from './cron-job';
+import { task } from './cron-job';
 
-// task.start();
+task.start();
 app.listen(port);

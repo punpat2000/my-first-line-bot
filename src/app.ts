@@ -13,6 +13,5 @@ app.use(validateSignature);
 app.use(confirmCommunication);
 
 app.post('/webhook', listenToWebhook);
-app.listen(port);
 
 export { app, port };
