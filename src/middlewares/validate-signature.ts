@@ -3,6 +3,9 @@ import Base64 from 'crypto-js/enc-base64';
 import type { Request, Response, NextFunction } from 'express';
 import config from '../config/config';
 
+/**
+ * Check whether the request is from LINE.
+ */
 const validateSignature = (
 	req: Request,
 	res: Response,
