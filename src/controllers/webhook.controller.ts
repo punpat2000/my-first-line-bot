@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import axios from 'axios';
-import { REPLY_URL } from '../api/url';
+import { REPLY_API } from '../api/endpoints';
 import LINE_HEADER from '../config/header';
 import type { WebHookEvent } from '../models/webhook-event.model';
 import type { MessageEvent } from '../models/event.model';
@@ -35,7 +35,7 @@ async function reply(event: MessageEvent, bo: any) {
 			},
 		],
 	};
-	return await axios.post(REPLY_URL, body, { headers: LINE_HEADER });
+	return await axios.post(REPLY_API, body, { headers: LINE_HEADER });
 }
 
 export default listenToWebhook;
