@@ -1,7 +1,7 @@
 import cron from 'node-cron';
 
-const task = cron.schedule('0 8 * * *', () => {
-  console.log('It\'s 8.00!');
+const task = cron.schedule('@hourly', () => {
+  console.log(`Hourly cron job run!`);
 });
 
 export { task };
