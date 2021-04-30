@@ -1,5 +1,7 @@
+export type sourceType = 'user' | 'group' | 'room';
+
 export interface Source {
-	type: 'user' | 'group' | 'room';
+	type: sourceType;
 	userId: string;
 }
 

@@ -1,25 +1,18 @@
 import type { Source } from './source.model';
 
-export enum Type {
-	MESSAGE = 'message',
-	VIDEO = 'video',
-	JOIN = 'join',
-}
+type eventType = 'message' | 'video' | 'join';
 
-export enum Mode {
-	ACTIVE = 'active',
-	STANDBY = 'standby'
-}
+type Mode = 'active' | 'standy';
 
 export interface Event<T extends Source = Source> {
-	type: Type,
+	type: eventType,
 	mode: Mode,
 	timeStamp: number,
 	source: T,
 }
 
 export interface MessageEvent extends Event {
-	type: Type.MESSAGE;
+	type: 'message';
 	replyToken: string;
 	message: {};
 }
