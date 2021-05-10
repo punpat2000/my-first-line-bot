@@ -6,15 +6,15 @@ export interface Source {
 }
 
 export interface UserSource extends Source {
-	type: 'user',
+	type: 'user';
 }
 
 export interface GroupSource extends Source {
-	type: 'group',
-	groupId: string,
+	type: 'group';
+	groupId: string;
 }
 
 export interface RoomSource extends Source {
-	type: 'room',
-	roomId: string,
+	type: 'room';
+	roomId: string;
 }

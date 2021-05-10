@@ -26,8 +26,7 @@ async function reply(event: MessageEvent, bo: any) {
 		messages: [
 			{
 				type: 'text',
-				text: ((event.message as any).text as string)
-					.toUpperCase(),
+				text: ((event.message as any).text as string).toUpperCase(),
 			},
 			{
 				type: 'text',
