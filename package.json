@@ -25,8 +25,8 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "deploy": "git add . && git commit -m Heroku && git push heroku main",
-    "lint": "eslint src/**",
-    "format": "eslint src/** --fix"
+    "lint": "eslint src/** --ext .ts",
+    "format": "eslint src/** --ext .ts --fix"
   },
   "dependencies": {
     "axios": "^0.21.1",
