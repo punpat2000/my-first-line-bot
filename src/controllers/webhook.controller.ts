@@ -20,21 +20,29 @@ const listenToWebhook = async (req: Request, res: Response) => {
 /**
  * @param  {string} Returns any response from LINE reply API.
  */
-async function reply(event: MessageEvent, bo: any) {
+async function reply(event: MessageEvent, bo?: any) {
 	const body = {
 		replyToken: event.replyToken,
 		messages: [
 			{
 				type: 'text',
-				text: ((event.message as any).text as string).toUpperCase(),
+				text: toBinary((event.message as any).text as string),
 			},
-			{
-				type: 'text',
-				text: JSON.stringify(bo),
-			},
+			// {
+			// 	type: 'text',
+			// 	text: JSON.stringify(bo),
+			// },
 		],
 	};
 	return await axios.post(REPLY_API, body, { headers: LINE_HEADER });
+}
+
+function toBinary(dec: string): string {
+	const x = +dec;
+	if (isNaN(x)) {
+		return `${dec} is not a number`;
+	}
+	return (x >>> 0).toString(2);
 }
 
 export default listenToWebhook;
