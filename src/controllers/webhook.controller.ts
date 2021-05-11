@@ -4,6 +4,7 @@ import { REPLY_API } from '../api/endpoints';
 import LINE_HEADER from '../config/header';
 import type { WebHookEvent } from '../models/webhook-event.model';
 import type { MessageEvent } from '../models/event.model';
+import { toBinary } from '../utils';
 
 const listenToWebhook = async (req: Request, res: Response) => {
 	const body = req.body as WebHookEvent<MessageEvent>;
@@ -35,14 +36,6 @@ async function reply(event: MessageEvent) {
 		],
 	};
 	return await axios.post(REPLY_API, body, { headers: LINE_HEADER });
-}
-
-function toBinary(dec: string): string {
-	const x = +dec;
-	if (isNaN(x)) {
-		return `"${dec}" is not a number`;
-	}
-	return (x >>> 0).toString(2);
 }
 
 export default listenToWebhook;
