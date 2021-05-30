@@ -25,4 +25,4 @@ const validateSignature = (
 	next();
 };
 
-export default validateSignature;
+export { validateSignature };

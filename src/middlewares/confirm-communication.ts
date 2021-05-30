@@ -16,4 +16,4 @@ const confirmCommunication = (
 	next();
 };
 
-export default confirmCommunication;
+export { confirmCommunication };
