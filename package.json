@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Pattradanai Punvichartkul <saint12302@gmail.com>",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.19.0",

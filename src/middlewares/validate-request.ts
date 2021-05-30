@@ -16,4 +16,4 @@ const validateRequest = (
 	next();
 };
 
-export default validateRequest;
+export { validateRequest };
