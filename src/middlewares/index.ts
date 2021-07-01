@@ -7,7 +7,7 @@ export * from './validate-request';
 export * from './validate-signature';
 
 export const middlewares = [
-	validateRequest,
-	validateSignature,
-	confirmCommunication,
+  validateRequest,
+  validateSignature,
+  confirmCommunication,
 ];

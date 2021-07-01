@@ -7,22 +7,22 @@ import config from '../config/config';
  * Check whether the request is from LINE.
  */
 const validateSignature = (
-	req: Request,
-	res: Response,
-	next: NextFunction
+  req: Request,
+  res: Response,
+  next: NextFunction
 ): void => {
-	const { body, headers } = req;
-	const signature = Base64.stringify(
-		hmacSHA256(JSON.stringify(body), config.CHANNEL_SECRET!)
-	);
+  const { body, headers } = req;
+  const signature = Base64.stringify(
+    hmacSHA256(JSON.stringify(body), config.CHANNEL_SECRET!)
+  );
 
-	if (signature !== headers['x-line-signature']) {
-		res.status(403).send('Unauthorized');
-		return;
-	}
+  if (signature !== headers['x-line-signature']) {
+    res.status(403).send('Unauthorized');
+    return;
+  }
 
-	console.log('authorized!');
-	next();
+  console.log('authorized!');
+  next();
 };
 
 export { validateSignature };
